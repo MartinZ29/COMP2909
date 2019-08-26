@@ -59,8 +59,8 @@
   <table><tr *ngFor="let item of items"><td>{{item.itemName}} &nbsp;&nbsp;&nbsp;&nbsp;{{item.itemQty}} &nbsp;&nbsp;&nbsp;&nbsp;{{item.itemPrice}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.itemAmount}} <input type="button" value="delete" (click)= removeItem(item.itemIndex)></td></tr></table>
   <div>
     <p>Subtotal  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  {{sum}}</p>
-    <p>Taxes 5%  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   {{sum*0.05}} </p>
-    <p>Total     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   {{sum*1.05}}</p>
+    <p>Taxes 5%  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   {{tax}} </p>
+    <p>Total     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   {{total}}</p>
   </div>
 
 </div>

@@ -51,23 +51,6 @@ export class AppComponent {
 
  index = 0;
 
-  // addItem(name,qty){
-  //   for(let i = 0; i < this.fruits.length; i++){
-  //     if(name == this.fruits[i].name){
-  //       let newItem = {
-  //         itemName:name,
-  //         itemQty:qty,
-  //         itemPrice:this.fruits[i].price,
-  //         itemAmount:parseInt(qty)*this.fruits[i].price,
-  //         itemIndex:this.index++
-  //       }
-  //       this.items.push(newItem)
-  //       console.log(this.items);
-  //     }
-  //  }
-  //  this.subtotal();
-  // }
-
   addItem(name,qty){
     if(parseInt(qty)>0){
     for(let i = 0; i < this.fruits.length; i++){
@@ -76,7 +59,7 @@ export class AppComponent {
           name,
           qty,
           this.fruits[i].price,
-          parseInt(qty)*this.fruits[i].price,
+          Math.round(parseInt(qty)*this.fruits[i].price*100)/100,
           this.index++
         );
         this.items.push(newItem)
@@ -86,6 +69,8 @@ export class AppComponent {
       }
    }}
    this.subtotal();
+   this.taxAmount();
+   this.totalAmount();
   }
 
   removeItem(num:number){
@@ -95,6 +80,8 @@ export class AppComponent {
       }
     }
     this.subtotal();
+    this.taxAmount();
+    this.totalAmount();
     console.log(this.items);
   }
 
@@ -105,7 +92,24 @@ subtotal(){
   for(let j = 0;j<this.items.length;j++){
     this.sum += this.items[j].itemAmount;
   }
+  this.sum = (Math.round(this.sum*100)/100).toFixed(2);
   return this.sum;
+}
+
+tax;
+
+taxAmount(){
+  this.tax = 0;
+  this.tax = (this.sum*0.05).toFixed(2);
+  return this.tax;
+}
+
+total;
+
+totalAmount(){
+  this.total = 0;
+  this.total = (this.sum*1.05).toFixed(2);
+  return this.total;
 }
 
 
